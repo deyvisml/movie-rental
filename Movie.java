@@ -1,26 +1,16 @@
 package movies;
 
-class Movie {
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
-    public static final int CHILDREN = 2;
-    private String _title;
-    private int _priceCode;
+abstract class Movie {
+    private final String title;
 
-    public Movie(String title, int priceCode) {
-        _title = title;
-        _priceCode = priceCode;
-    }
-
-    public int getPriceCode() {
-        return _priceCode;
-    }
-
-    public void setPriceCode(int arg) {
-        _priceCode = arg;
+    public Movie(String title) {
+        this.title = title;
     }
 
     public String getTitle() {
-        return _title;
+        return title;
     }
+
+    public abstract double calculateAmount(int daysRented);
+    public abstract int calculateFrequentRenterPoints(int daysRented);
 }
