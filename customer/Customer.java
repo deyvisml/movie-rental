@@ -1,6 +1,6 @@
-package movies;
+package movies.customer;
 
-class Customer {
+public class Customer {
   private String name;
 
   public Customer() {

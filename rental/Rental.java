@@ -1,9 +1,8 @@
-package movies;
+package movies.rental;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import movies.movies.Movie;
 
-class Rental {
+public class Rental {
 
   private Movie movie;
   private int daysRented;

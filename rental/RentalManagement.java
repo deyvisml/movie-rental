@@ -1,27 +1,37 @@
-package movies;
+package movies.rental;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import movies.customer.Customer;
 
 /**
  * @author Deyvis Mamani L.
  */
 public class RentalManagement {
 
+  private static RentalManagement instance;
+
   private Map<String, List<Rental>> rentals;
   private final RentalRepository rentalRepository;
 
-  public RentalManagement(RentalRepository rentalRepository) {
-    this.rentalRepository = rentalRepository;
+  private RentalManagement() {
+    this.rentalRepository = JsonRentalRepository.getInstance();
     this.rentals = new HashMap<>();
     try {
       rentals.putAll(rentalRepository.loadRentals());
     } catch (IOException e) {
       System.out.println("Error al cargar las rentas: " + e.getMessage());
     }
+  }
+
+  public static RentalManagement getInstance() {
+    if (instance == null) {
+      instance = new RentalManagement();
+    }
+    return instance;
   }
 
   public void addRental(Customer customer, Rental rental) {

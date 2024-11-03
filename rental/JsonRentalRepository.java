@@ -1,4 +1,4 @@
-package movies;
+package movies.rental;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,12 +11,22 @@ import java.util.Map;
 /**
  * @author Deyvis Mamani L.
  */
-public class JsonRentalRepository implements RentalRepository{
-  private static final String FILE_PATH = "rentals.json";
+public class JsonRentalRepository implements RentalRepository {
+
+  private static JsonRentalRepository instance;
+
+  private static final String FILE_PATH = "resources/rentals.json";
   private final ObjectMapper mapper;
 
-  public JsonRentalRepository() {
+  private JsonRentalRepository() {
     this.mapper = new ObjectMapper();
+  }
+
+  public static JsonRentalRepository getInstance() {
+    if (instance == null) {
+      instance = new JsonRentalRepository();
+    }
+    return instance;
   }
 
   @Override
