@@ -1,11 +1,18 @@
 package movies;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @author Deyvis Mamani L.
  */
 public class NewReleaseMovie extends Movie{
 
-  public NewReleaseMovie(String title) {
+  public NewReleaseMovie() {
+
+  }
+
+  public NewReleaseMovie( String title) {
     super(title);
   }
 

@@ -1,11 +1,14 @@
 package movies;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @author Deyvis Mamani L.
  */
 public class ChildrenMovie extends Movie{
 
-  public ChildrenMovie(String title) {
+  public ChildrenMovie(@JsonProperty("title") String title) {
     super(title);
   }
 

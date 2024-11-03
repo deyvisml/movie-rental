@@ -1,0 +1,95 @@
+{
+  "Deyvis" : [ {
+    "movie" : {
+      "type" : "new_release",
+      "title" : "Zack Snyder's Justice League"
+    },
+    "daysRented" : 5
+  }, {
+    "movie" : {
+      "type" : "regular",
+      "title" : "Terminator"
+    },
+    "daysRented" : 1
+  }, {
+    "movie" : {
+      "type" : "children",
+      "title" : "Soul"
+    },
+    "daysRented" : 3
+  }, {
+    "movie" : {
+      "type" : "new_release",
+      "title" : "Zack Snyder's Justice League"
+    },
+    "daysRented" : 5
+  }, {
+    "movie" : {
+      "type" : "regular",
+      "title" : "Terminator"
+    },
+    "daysRented" : 1
+  }, {
+    "movie" : {
+      "type" : "children",
+      "title" : "Soul"
+    },
+    "daysRented" : 3
+  }, {
+    "movie" : {
+      "type" : "new_release",
+      "title" : "Zack Snyder's Justice League"
+    },
+    "daysRented" : 5
+  }, {
+    "movie" : {
+      "type" : "regular",
+      "title" : "Terminator"
+    },
+    "daysRented" : 1
+  }, {
+    "movie" : {
+      "type" : "children",
+      "title" : "Soul"
+    },
+    "daysRented" : 3
+  }, {
+    "movie" : {
+      "type" : "new_release",
+      "title" : "Zack Snyder's Justice League"
+    },
+    "daysRented" : 5
+  }, {
+    "movie" : {
+      "type" : "regular",
+      "title" : "Terminator"
+    },
+    "daysRented" : 1
+  }, {
+    "movie" : {
+      "type" : "children",
+      "title" : "Soul"
+    },
+    "daysRented" : 3
+  } ],
+  "John Doe" : [ {
+    "movie" : {
+      "type" : "children",
+      "title" : "Toy Story"
+    },
+    "daysRented" : 5
+  }, {
+    "movie" : {
+      "type" : "regular",
+      "title" : "Die Hard"
+    },
+    "daysRented" : 3
+  } ],
+  "Jane Smith" : [ {
+    "movie" : {
+      "type" : "new_release",
+      "title" : "The Matrix"
+    },
+    "daysRented" : 7
+  } ]
+}
