@@ -6,7 +6,6 @@ import java.util.Map;
 
 /**
  * @author Deyvis Mamani L.
- * @created 02/11/2024
  */
 public interface RentalRepository {
   void saveRentals(Map<String, List<Rental>> rentals) throws IOException;
