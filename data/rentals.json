@@ -1,0 +1,21 @@
+{
+  "Deyvis" : [ {
+    "movie" : {
+      "type" : "new_release",
+      "title" : "Zack Snyder's Justice League"
+    },
+    "daysRented" : 5
+  }, {
+    "movie" : {
+      "type" : "regular",
+      "title" : "Terminator"
+    },
+    "daysRented" : 1
+  }, {
+    "movie" : {
+      "type" : "children",
+      "title" : "Soul"
+    },
+    "daysRented" : 3
+  } ]
+}
