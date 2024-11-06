@@ -1,0 +1,2 @@
+2024-11-05 16:42:21 ERROR c.jalasoft.rental.RentalManagement - Error loading the rents: Cannot construct instance of `rental.com.jalasoft.movierental.Rental` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('movie')
+ at [Source: (File); line: 3, column: 5] (through reference chain: java.util.LinkedHashMap["Deyvis"]->java.util.ArrayList[0])

@@ -1,4 +1,4 @@
-package com.jalasoft.movies;
+package com.jalasoft.movierental.entity.movies;
 
 /**
  * @author Deyvis Mamani L.

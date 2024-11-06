@@ -1,6 +1,4 @@
-package com.jalasoft.movies.strategies;
-
-import com.jalasoft.movies.strategies.PricingStrategy;
+package com.jalasoft.movierental.entity.movies.strategies;
 
 /**
  * @author Deyvis Mamani L.

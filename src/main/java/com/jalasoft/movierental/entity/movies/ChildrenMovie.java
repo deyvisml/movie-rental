@@ -1,9 +1,9 @@
-package com.jalasoft.movies;
+package com.jalasoft.movierental.entity.movies;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jalasoft.movies.strategies.ChildrenPointsStrategy;
-import com.jalasoft.movies.strategies.ChildrenPricingStrategy;
+import com.jalasoft.movierental.entity.movies.strategies.ChildrenPointsStrategy;
+import com.jalasoft.movierental.entity.movies.strategies.ChildrenPricingStrategy;
 
 /**
  * @author Deyvis Mamani L.

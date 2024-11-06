@@ -1,9 +1,9 @@
-package com.jalasoft.movies;
+package com.jalasoft.movierental.entity.movies;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jalasoft.movies.strategies.NewReleasePointsStrategy;
-import com.jalasoft.movies.strategies.NewReleasePricingStrategy;
+import com.jalasoft.movierental.entity.movies.strategies.NewReleasePointsStrategy;
+import com.jalasoft.movierental.entity.movies.strategies.NewReleasePricingStrategy;
 
 /**
  * @author Deyvis Mamani L.
