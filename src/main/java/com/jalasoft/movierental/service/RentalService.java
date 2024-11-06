@@ -36,15 +36,22 @@ public class RentalService {
   }
 
   public void showDetailsByCustomer(Customer customer) {
-    System.out.println("Rental record for: " + customer.getName());
+    StringBuilder details = new StringBuilder();
+    details.append("Rental record for: ").append(customer.getName()).append("\n");
 
     rentalRepository.getAllRentalsByCustomerId(customer.getId()).forEach(rental -> {
       double rentalAmount = calculateRentalAmount(rental);
-      System.out.println("\t" + movieRepository.getMovieById(rental.getMovieId()).getTitle() + "\t" + rentalAmount);
+      details.append("\t")
+          .append(movieRepository.getMovieById(rental.getMovieId()).getTitle())
+          .append("\t")
+          .append(rentalAmount)
+          .append("\n");
     });
 
-    System.out.println("Amount owed is: " + calculateTotalRentalAmount(customer));
-    System.out.println("You earn: " + calculateTotalRentalPoints(customer) + " frequent renter points");
+    details.append("Amount owed is: ").append(calculateTotalRentalAmount(customer)).append("\n");
+    details.append("You earn: ").append(calculateTotalRentalPoints(customer)).append(" frequent renter points");
+
+    System.out.println(details);
   }
 
   public double calculateTotalRentalAmount(Customer customer) {
