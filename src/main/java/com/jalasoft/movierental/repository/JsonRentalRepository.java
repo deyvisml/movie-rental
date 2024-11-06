@@ -3,6 +3,7 @@ package com.jalasoft.movierental.repository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jalasoft.movierental.entity.Rental;
+import com.jalasoft.movierental.exception.custom.FileAccessException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class JsonRentalRepository implements RentalRepository {
     try {
       return mapper.readValue(file, new TypeReference<List<Rental>>() {});
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      throw new FileAccessException("Error reading rentals", e);
     }
   }
 
@@ -68,7 +69,7 @@ public class JsonRentalRepository implements RentalRepository {
     try {
       mapper.writerWithDefaultPrettyPrinter().writeValue(file, rentals);
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      throw new FileAccessException("Error writing rentals", e);
     }
   }
 }

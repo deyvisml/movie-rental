@@ -30,10 +30,6 @@ public class Rental {
     return daysRented;
   }
 
-  public void setMovieId(UUID movieId) {
-    this.movieId = movieId;
-  }
-
   public void setDaysRented(int daysRented) {
     this.daysRented = daysRented;
   }

@@ -10,4 +10,64 @@
   "customerId" : "46843f51-34f0-4c1e-b733-f07ee17c0efd",
   "movieId" : "c363f2aa-b862-4c5f-8c0d-546f01b743c5",
   "daysRented" : 3
+}, {
+  "customerId" : "bcd39291-5f71-4db7-9572-fb743911019a",
+  "movieId" : "c0ef0faf-034f-4b4f-bd0f-bd9734b821df",
+  "daysRented" : 5
+}, {
+  "customerId" : "bcd39291-5f71-4db7-9572-fb743911019a",
+  "movieId" : "4d506af1-93eb-4c4a-9843-3bdb491e5a29",
+  "daysRented" : 1
+}, {
+  "customerId" : "bcd39291-5f71-4db7-9572-fb743911019a",
+  "movieId" : "c363f2aa-b862-4c5f-8c0d-546f01b743c5",
+  "daysRented" : 3
+}, {
+  "customerId" : "c70f3902-8736-4947-83cf-34b2b47251e5",
+  "movieId" : "c0ef0faf-034f-4b4f-bd0f-bd9734b821df",
+  "daysRented" : 5
+}, {
+  "customerId" : "c70f3902-8736-4947-83cf-34b2b47251e5",
+  "movieId" : "4d506af1-93eb-4c4a-9843-3bdb491e5a29",
+  "daysRented" : 1
+}, {
+  "customerId" : "c70f3902-8736-4947-83cf-34b2b47251e5",
+  "movieId" : "c363f2aa-b862-4c5f-8c0d-546f01b743c5",
+  "daysRented" : 3
+}, {
+  "customerId" : "2f1ef060-da1d-4466-adac-34e51ef2d5bc",
+  "movieId" : "c0ef0faf-034f-4b4f-bd0f-bd9734b821df",
+  "daysRented" : 5
+}, {
+  "customerId" : "2f1ef060-da1d-4466-adac-34e51ef2d5bc",
+  "movieId" : "4d506af1-93eb-4c4a-9843-3bdb491e5a29",
+  "daysRented" : 1
+}, {
+  "customerId" : "2f1ef060-da1d-4466-adac-34e51ef2d5bc",
+  "movieId" : "c363f2aa-b862-4c5f-8c0d-546f01b743c5",
+  "daysRented" : 3
+}, {
+  "customerId" : "35f7bd7a-978a-451d-8c9d-6c232556aef2",
+  "movieId" : "c0ef0faf-034f-4b4f-bd0f-bd9734b821df",
+  "daysRented" : 5
+}, {
+  "customerId" : "35f7bd7a-978a-451d-8c9d-6c232556aef2",
+  "movieId" : "4d506af1-93eb-4c4a-9843-3bdb491e5a29",
+  "daysRented" : 1
+}, {
+  "customerId" : "35f7bd7a-978a-451d-8c9d-6c232556aef2",
+  "movieId" : "c363f2aa-b862-4c5f-8c0d-546f01b743c5",
+  "daysRented" : 3
+}, {
+  "customerId" : "dc56faab-8a19-4484-9f56-2ccd693c7b68",
+  "movieId" : "c0ef0faf-034f-4b4f-bd0f-bd9734b821df",
+  "daysRented" : 5
+}, {
+  "customerId" : "dc56faab-8a19-4484-9f56-2ccd693c7b68",
+  "movieId" : "4d506af1-93eb-4c4a-9843-3bdb491e5a29",
+  "daysRented" : 1
+}, {
+  "customerId" : "dc56faab-8a19-4484-9f56-2ccd693c7b68",
+  "movieId" : "c363f2aa-b862-4c5f-8c0d-546f01b743c5",
+  "daysRented" : 3
 } ]

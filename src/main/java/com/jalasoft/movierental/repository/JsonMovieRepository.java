@@ -1,10 +1,11 @@
 package com.jalasoft.movierental.repository;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jalasoft.movierental.entity.movies.Movie;
+import com.jalasoft.movierental.exception.custom.FileAccessException;
+import com.jalasoft.movierental.exception.custom.ResourceBadRequestException;
+import com.jalasoft.movierental.exception.custom.ResourceNotFoundException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,10 +18,10 @@ import java.util.UUID;
 public class JsonMovieRepository implements MovieRepository{
 
   private static JsonMovieRepository instance;
-  private ObjectMapper mapper;
+  private final ObjectMapper mapper;
   private static final String FILE_PATH = "data/movies.json";
   private final File file;
-  private List<Movie> movies;
+  private final List<Movie> movies;
 
   private JsonMovieRepository() {
     this.mapper = new ObjectMapper();
@@ -38,10 +39,6 @@ public class JsonMovieRepository implements MovieRepository{
 
   @Override
   public Movie saveMovie(Movie movie) {
-    movies.stream().filter(movieI -> movieI.getTitle().equals(movie.getTitle())).findFirst().ifPresent(m -> {
-      throw new RuntimeException("Movie already exists");
-    });
-
     movies.add(movie);
     writeMovies();
     return movie;
@@ -52,7 +49,7 @@ public class JsonMovieRepository implements MovieRepository{
     return movies.stream()
         .filter(movie -> movie.getId().equals(id))
         .findFirst()
-        .orElseThrow();
+        .orElseThrow(() -> new ResourceNotFoundException("Movie with id " + id + " not found"));
   }
 
   @Override
@@ -69,7 +66,7 @@ public class JsonMovieRepository implements MovieRepository{
       return mapper.readValue(file, new TypeReference<List<Movie>>() {});
 
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      throw new FileAccessException("Error reading movies", e);
     }
   }
 
@@ -79,7 +76,7 @@ public class JsonMovieRepository implements MovieRepository{
           .withDefaultPrettyPrinter()
           .writeValue(file, this.movies);
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      throw new FileAccessException("Error writing movies", e);
     }
   }
 }

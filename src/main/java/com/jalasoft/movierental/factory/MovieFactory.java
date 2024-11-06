@@ -5,6 +5,7 @@ import com.jalasoft.movierental.entity.movies.Movie;
 import com.jalasoft.movierental.entity.movies.MovieType;
 import com.jalasoft.movierental.entity.movies.NewReleaseMovie;
 import com.jalasoft.movierental.entity.movies.RegularMovie;
+import com.jalasoft.movierental.exception.custom.ResourceBadRequestException;
 
 /**
  * @author Deyvis Mamani L.
@@ -15,7 +16,7 @@ public class MovieFactory {
       case NEW_RELEASE -> new NewReleaseMovie(title);
       case REGULAR -> new RegularMovie(title);
       case CHILDREN -> new ChildrenMovie(title);
-      default -> throw new IllegalArgumentException("Invalid movie type");
+      default -> throw new ResourceBadRequestException("Invalid movie type");
     };
   }
 }

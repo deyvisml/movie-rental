@@ -3,6 +3,8 @@ package com.jalasoft.movierental.repository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jalasoft.movierental.entity.Customer;
+import com.jalasoft.movierental.exception.custom.FileAccessException;
+import com.jalasoft.movierental.exception.custom.ResourceNotFoundException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,7 +47,7 @@ public class JsonCustomerRepository implements CustomerRepository {
     return customers.stream()
         .filter(customer -> customer.getId().equals(id))
         .findFirst()
-        .orElseThrow();
+        .orElseThrow(() -> new ResourceNotFoundException("Customer with id " + id + " not found"));
   }
 
   @Override
@@ -61,7 +63,7 @@ public class JsonCustomerRepository implements CustomerRepository {
     try {
       return mapper.readValue(file, new TypeReference<List<Customer>>() {});
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      throw new FileAccessException("Error reading customers", e);
     }
   }
 
@@ -69,7 +71,7 @@ public class JsonCustomerRepository implements CustomerRepository {
     try {
       mapper.writerWithDefaultPrettyPrinter().writeValue(file, customers);
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      throw new FileAccessException("Error writing customers", e);
     }
   }
 }

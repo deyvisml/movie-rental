@@ -1,6 +1,8 @@
 package com.jalasoft.movierental.service;
 
 import com.jalasoft.movierental.entity.Customer;
+import com.jalasoft.movierental.repository.CustomerRepository;
+import com.jalasoft.movierental.repository.JsonCustomerRepository;
 import com.jalasoft.movierental.repository.JsonMovieRepository;
 import com.jalasoft.movierental.repository.JsonRentalRepository;
 import com.jalasoft.movierental.entity.Rental;
@@ -18,10 +20,12 @@ public class RentalService {
   private static final Logger logger = LoggerFactory.getLogger(RentalService.class);
   private final RentalRepository rentalRepository;
   private final MovieRepository movieRepository;
+  private final CustomerRepository customerRepository;
 
   private RentalService() {
     this.rentalRepository = JsonRentalRepository.getInstance();
     this.movieRepository = JsonMovieRepository.getInstance();
+    this.customerRepository = JsonCustomerRepository.getInstance();
   }
 
   public static RentalService getInstance() {
@@ -32,6 +36,11 @@ public class RentalService {
   }
 
   public void addRental(Rental rental) {
+    logger.info("Adding rental: {}", rental);
+    // Validate if the customer and movie exist
+    customerRepository.getCustomerById(rental.getCustomerId());
+    movieRepository.getMovieById(rental.getMovieId());
+
     rentalRepository.saveRental(rental);
   }
 
@@ -55,7 +64,6 @@ public class RentalService {
   }
 
   public double calculateTotalRentalAmount(Customer customer) {
-
     return rentalRepository.getAllRentalsByCustomerId(customer.getId())
         .stream()
         .mapToDouble(this::calculateRentalAmount)
