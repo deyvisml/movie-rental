@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -17,7 +18,7 @@ import java.util.UUID;
  *
  * Author: Deyvis Mamani L.
  */
-public class JsonCustomerRepository implements CustomerRepository {
+public class JsonCustomerRepository implements Repository<Customer> {
 
   private static JsonCustomerRepository instance;
   private final ObjectMapper mapper;
@@ -54,7 +55,7 @@ public class JsonCustomerRepository implements CustomerRepository {
    * @return the saved customer
    */
   @Override
-  public Customer saveCustomer(Customer customer) {
+  public Customer save(Customer customer) {
     customers.add(customer);
     writeCustomers();
     return customer;
@@ -68,11 +69,14 @@ public class JsonCustomerRepository implements CustomerRepository {
    * @throws ResourceNotFoundException if the customer is not found
    */
   @Override
-  public Customer getCustomerById(UUID id) {
-    return customers.stream()
-        .filter(customer -> customer.getId().equals(id))
-        .findFirst()
-        .orElseThrow(() -> new ResourceNotFoundException("Customer with id " + id + " not found"));
+  public Customer findById(UUID id) {
+    Optional<Customer> customer = customers.stream()
+        .filter(c -> c.getId().equals(id))
+        .findFirst();
+    if (customer.isEmpty()) {
+      throw new ResourceNotFoundException("Customer not found");
+    }
+    return customer.get();
   }
 
   /**
@@ -81,8 +85,8 @@ public class JsonCustomerRepository implements CustomerRepository {
    * @return a list of all customers
    */
   @Override
-  public List<Customer> getAllCustomers() {
-    return customers;
+  public List<Customer> findAll() {
+    return new ArrayList<>(customers);
   }
 
   /**

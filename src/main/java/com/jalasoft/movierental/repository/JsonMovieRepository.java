@@ -17,7 +17,7 @@ import java.util.UUID;
  *
  * Author: Deyvis Mamani L.
  */
-public class JsonMovieRepository implements MovieRepository {
+public class JsonMovieRepository implements Repository<Movie> {
 
   private static JsonMovieRepository instance;
   private final ObjectMapper mapper;
@@ -48,13 +48,13 @@ public class JsonMovieRepository implements MovieRepository {
   }
 
   /**
-   * Saves the given movie to the repository.
+   * Saves a new movie to the repository.
    *
    * @param movie the movie to save
    * @return the saved movie
    */
   @Override
-  public Movie saveMovie(Movie movie) {
+  public Movie save(Movie movie) {
     movies.add(movie);
     writeMovies();
     return movie;
@@ -68,7 +68,7 @@ public class JsonMovieRepository implements MovieRepository {
    * @throws ResourceNotFoundException if the movie is not found
    */
   @Override
-  public Movie getMovieById(UUID id) {
+  public Movie findById(UUID id) {
     return movies.stream()
         .filter(movie -> movie.getId().equals(id))
         .findFirst()
@@ -81,7 +81,7 @@ public class JsonMovieRepository implements MovieRepository {
    * @return a list of all movies
    */
   @Override
-  public List<Movie> getAllMovies() {
+  public List<Movie> findAll() {
     return movies;
   }
 

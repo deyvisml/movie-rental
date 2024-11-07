@@ -1,8 +1,8 @@
 package com.jalasoft.movierental.service;
 
 import com.jalasoft.movierental.entity.Customer;
-import com.jalasoft.movierental.repository.CustomerRepository;
 import com.jalasoft.movierental.repository.JsonCustomerRepository;
+import com.jalasoft.movierental.repository.Repository;
 import java.util.List;
 import java.util.UUID;
 import org.slf4j.Logger;
@@ -18,7 +18,7 @@ public class CustomerService {
 
   private static CustomerService instance;
   private static final Logger logger = LoggerFactory.getLogger(CustomerService.class);
-  private final CustomerRepository customerRepository;
+  private final Repository<Customer> customerRepository;
 
   /**
    * Private constructor to initialize the service.
@@ -48,7 +48,7 @@ public class CustomerService {
    */
   public Customer addCustomer(Customer customer) {
     logger.info("Adding customer: {}", customer);
-    return customerRepository.saveCustomer(customer);
+    return customerRepository.save(customer);
   }
 
   /**
@@ -59,7 +59,7 @@ public class CustomerService {
    */
   public Customer getCustomerById(UUID id) {
     logger.info("Getting customer by id: {}", id);
-    return customerRepository.getCustomerById(id);
+    return customerRepository.findById(id);
   }
 
   /**
@@ -69,6 +69,6 @@ public class CustomerService {
    */
   public List<Customer> getAllCustomers() {
     logger.info("Getting all customers");
-    return customerRepository.getAllCustomers();
+    return customerRepository.findAll();
   }
 }

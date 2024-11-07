@@ -93,6 +93,8 @@ public class MenuController {
           default:
             System.out.println("Invalid choice. Please try again.");
         }
+        System.out.println("Press Enter to continue...");
+        scanner.nextLine();
       } catch (Exception e) {
         CustomExceptionHandler.handleException(e);
       }

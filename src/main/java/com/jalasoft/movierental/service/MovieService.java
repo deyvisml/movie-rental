@@ -2,7 +2,7 @@ package com.jalasoft.movierental.service;
 
 import com.jalasoft.movierental.entity.movies.Movie;
 import com.jalasoft.movierental.repository.JsonMovieRepository;
-import com.jalasoft.movierental.repository.MovieRepository;
+import com.jalasoft.movierental.repository.Repository;
 import java.util.List;
 import java.util.UUID;
 import org.slf4j.Logger;
@@ -18,7 +18,7 @@ public class MovieService {
 
   private static MovieService instance;
   private static final Logger logger = LoggerFactory.getLogger(MovieService.class);
-  private final MovieRepository movieRepository;
+  private final Repository<Movie> movieRepository;
 
   /**
    * Private constructor to initialize the service.
@@ -48,7 +48,7 @@ public class MovieService {
    */
   public Movie addMovie(Movie movie) {
     logger.info("Adding movie: {}", movie);
-    return movieRepository.saveMovie(movie);
+    return movieRepository.save(movie);
   }
 
   /**
@@ -59,7 +59,7 @@ public class MovieService {
    */
   public Movie getMovieById(UUID id) {
     logger.info("Getting movie by id: {}", id);
-    return movieRepository.getMovieById(id);
+    return movieRepository.findById(id);
   }
 
   /**
@@ -69,6 +69,6 @@ public class MovieService {
    */
   public List<Movie> getAllMovies() {
     logger.info("Getting all movies");
-    return movieRepository.getAllMovies();
+    return movieRepository.findAll();
   }
 }

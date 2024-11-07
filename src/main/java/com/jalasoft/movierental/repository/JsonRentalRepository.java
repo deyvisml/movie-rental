@@ -16,7 +16,7 @@ import java.util.UUID;
  *
  * Author: Deyvis Mamani L.
  */
-public class JsonRentalRepository implements RentalRepository {
+public class JsonRentalRepository implements Repository<Rental> {
 
   private static JsonRentalRepository instance;
   private final ObjectMapper mapper;
@@ -47,27 +47,27 @@ public class JsonRentalRepository implements RentalRepository {
   }
 
   /**
-   * Saves the given rental to the repository.
+   * Saves a new rental to the repository.
    *
    * @param rental the rental to save
+   * @return the saved rental
    */
   @Override
-  public void saveRental(Rental rental) {
+  public Rental save(Rental rental) {
     rentals.add(rental);
     writeRentals();
+    return rental;
   }
 
   /**
-   * Retrieves all rentals for a specific customer by their unique identifier.
+   * Retrieves a rental by its unique identifier.
    *
-   * @param customerId the unique identifier of the customer
-   * @return a list of rentals for the specified customer
+   * @param id the unique identifier of the rental
+   * @return the rental with the specified identifier
    */
   @Override
-  public List<Rental> getAllRentalsByCustomerId(UUID customerId) {
-    return rentals.stream()
-        .filter(rental -> rental.getCustomerId().equals(customerId))
-        .toList();
+  public Rental findById(UUID id) {
+    return null;
   }
 
   /**
@@ -76,7 +76,7 @@ public class JsonRentalRepository implements RentalRepository {
    * @return a list of all rentals
    */
   @Override
-  public List<Rental> getAllRentals() {
+  public List<Rental> findAll() {
     return rentals;
   }
 

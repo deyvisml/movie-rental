@@ -1,14 +1,15 @@
 package com.jalasoft.movierental.service;
 
 import com.jalasoft.movierental.entity.Customer;
-import com.jalasoft.movierental.repository.CustomerRepository;
+import com.jalasoft.movierental.entity.movies.Movie;
 import com.jalasoft.movierental.repository.JsonCustomerRepository;
 import com.jalasoft.movierental.repository.JsonMovieRepository;
 import com.jalasoft.movierental.repository.JsonRentalRepository;
 import com.jalasoft.movierental.entity.Rental;
-import com.jalasoft.movierental.repository.MovieRepository;
-import com.jalasoft.movierental.repository.RentalRepository;
+import com.jalasoft.movierental.repository.Repository;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,9 +23,9 @@ public class RentalService {
 
   private static RentalService instance;
   private static final Logger logger = LoggerFactory.getLogger(RentalService.class);
-  private final RentalRepository rentalRepository;
-  private final MovieRepository movieRepository;
-  private final CustomerRepository customerRepository;
+  private final Repository<Rental> rentalRepository;
+  private final Repository<Movie> movieRepository;
+  private final Repository<Customer> customerRepository;
 
   /**
    * Private constructor to initialize the service.
@@ -57,17 +58,24 @@ public class RentalService {
   public void addRental(Rental rental) {
     logger.info("Adding rental: {}", rental);
     // Validate if the customer and movie exist
-    customerRepository.getCustomerById(rental.getCustomerId());
-    movieRepository.getMovieById(rental.getMovieId());
+    customerRepository.findById(rental.getCustomerId());
+    movieRepository.findById(rental.getMovieId());
 
-    rentalRepository.saveRental(rental);
+    rentalRepository.save(rental);
+  }
+
+  public List<Rental> getAllRentalsByCustomerId(UUID customerId) {
+    return rentalRepository.findAll()
+        .stream()
+        .filter(rental -> rental.getCustomerId().equals(customerId))
+        .collect(Collectors.toList());
   }
 
   /**
    * Displays all rentals for all customers.
    */
   public void showAllCustomerRentals() {
-    customerRepository.getAllCustomers().forEach(customer -> showDetailsByCustomerId(customer.getId()));
+    customerRepository.findAll().forEach(customer -> showDetailsByCustomerId(customer.getId()));
   }
 
   /**
@@ -76,14 +84,14 @@ public class RentalService {
    * @param customerId the unique identifier of the customer
    */
   public void showDetailsByCustomerId(UUID customerId) {
-    Customer customer = customerRepository.getCustomerById(customerId);
+    Customer customer = customerRepository.findById(customerId);
     StringBuilder details = new StringBuilder();
     details.append("Rental record for: ").append(customer.getName()).append("\n");
 
-    rentalRepository.getAllRentalsByCustomerId(customer.getId()).forEach(rental -> {
+    getAllRentalsByCustomerId(customerId).forEach(rental -> {
       double rentalAmount = calculateRentalAmount(rental);
       details.append("\t")
-          .append(movieRepository.getMovieById(rental.getMovieId()).getTitle())
+          .append(movieRepository.findById(rental.getMovieId()).getTitle())
           .append("\t")
           .append(rentalAmount)
           .append("\n");
@@ -103,7 +111,7 @@ public class RentalService {
    * @return the total rental amount
    */
   public double calculateTotalRentalAmount(Customer customer) {
-    return rentalRepository.getAllRentalsByCustomerId(customer.getId())
+    return getAllRentalsByCustomerId(customer.getId())
         .stream()
         .mapToDouble(this::calculateRentalAmount)
         .sum();
@@ -116,7 +124,7 @@ public class RentalService {
    * @return the rental amount
    */
   public double calculateRentalAmount(Rental rental) {
-    return movieRepository.getMovieById(rental.getMovieId()).calculateAmount(rental.getDaysRented());
+    return movieRepository.findById(rental.getMovieId()).calculateAmount(rental.getDaysRented());
   }
 
   /**
@@ -126,7 +134,7 @@ public class RentalService {
    * @return the total frequent renter points
    */
   public int calculateTotalRentalPoints(Customer customer) {
-    return rentalRepository.getAllRentalsByCustomerId(customer.getId())
+    return getAllRentalsByCustomerId(customer.getId())
         .stream()
         .mapToInt(this::calculateRentalPoints)
         .sum();
@@ -139,6 +147,6 @@ public class RentalService {
    * @return the frequent renter points
    */
   public int calculateRentalPoints(Rental rental) {
-    return movieRepository.getMovieById(rental.getMovieId()).calculateFrequentRenterPoints(rental.getDaysRented());
+    return movieRepository.findById(rental.getMovieId()).calculateFrequentRenterPoints(rental.getDaysRented());
   }
 }
