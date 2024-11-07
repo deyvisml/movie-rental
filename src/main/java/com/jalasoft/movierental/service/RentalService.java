@@ -13,7 +13,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Deyvis Mamani L.
+ * Service class for managing Rental entities.
+ * Provides methods for adding, retrieving, and listing rentals.
+ *
+ * Author: Deyvis Mamani L.
  */
 public class RentalService {
 
@@ -23,12 +26,21 @@ public class RentalService {
   private final MovieRepository movieRepository;
   private final CustomerRepository customerRepository;
 
+  /**
+   * Private constructor to initialize the service.
+   * Uses JsonRentalRepository, JsonMovieRepository, and JsonCustomerRepository as the repository implementations.
+   */
   private RentalService() {
     this.rentalRepository = JsonRentalRepository.getInstance();
     this.movieRepository = JsonMovieRepository.getInstance();
     this.customerRepository = JsonCustomerRepository.getInstance();
   }
 
+  /**
+   * Returns the singleton instance of RentalService.
+   *
+   * @return the singleton instance
+   */
   public static RentalService getInstance() {
     if (instance == null) {
       instance = new RentalService();
@@ -36,6 +48,12 @@ public class RentalService {
     return instance;
   }
 
+  /**
+   * Adds a new rental to the repository.
+   * Validates if the customer and movie exist before saving the rental.
+   *
+   * @param rental the rental to add
+   */
   public void addRental(Rental rental) {
     logger.info("Adding rental: {}", rental);
     // Validate if the customer and movie exist
@@ -45,10 +63,18 @@ public class RentalService {
     rentalRepository.saveRental(rental);
   }
 
+  /**
+   * Displays all rentals for all customers.
+   */
   public void showAllCustomerRentals() {
     customerRepository.getAllCustomers().forEach(customer -> showDetailsByCustomerId(customer.getId()));
   }
 
+  /**
+   * Displays rental details for a specific customer by their unique identifier.
+   *
+   * @param customerId the unique identifier of the customer
+   */
   public void showDetailsByCustomerId(UUID customerId) {
     Customer customer = customerRepository.getCustomerById(customerId);
     StringBuilder details = new StringBuilder();
@@ -70,6 +96,12 @@ public class RentalService {
     System.out.println(details);
   }
 
+  /**
+   * Calculates the total rental amount for a specific customer.
+   *
+   * @param customer the customer for whom to calculate the total rental amount
+   * @return the total rental amount
+   */
   public double calculateTotalRentalAmount(Customer customer) {
     return rentalRepository.getAllRentalsByCustomerId(customer.getId())
         .stream()
@@ -77,10 +109,22 @@ public class RentalService {
         .sum();
   }
 
+  /**
+   * Calculates the rental amount for a specific rental.
+   *
+   * @param rental the rental for which to calculate the amount
+   * @return the rental amount
+   */
   public double calculateRentalAmount(Rental rental) {
     return movieRepository.getMovieById(rental.getMovieId()).calculateAmount(rental.getDaysRented());
   }
 
+  /**
+   * Calculates the total frequent renter points for a specific customer.
+   *
+   * @param customer the customer for whom to calculate the total frequent renter points
+   * @return the total frequent renter points
+   */
   public int calculateTotalRentalPoints(Customer customer) {
     return rentalRepository.getAllRentalsByCustomerId(customer.getId())
         .stream()
@@ -88,6 +132,12 @@ public class RentalService {
         .sum();
   }
 
+  /**
+   * Calculates the frequent renter points for a specific rental.
+   *
+   * @param rental the rental for which to calculate the frequent renter points
+   * @return the frequent renter points
+   */
   public int calculateRentalPoints(Rental rental) {
     return movieRepository.getMovieById(rental.getMovieId()).calculateFrequentRenterPoints(rental.getDaysRented());
   }

@@ -9,7 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Deyvis Mamani L.
+ * Service class for managing Customer entities.
+ * Provides methods for adding, retrieving, and listing customers.
+ *
+ * Author: Deyvis Mamani L.
  */
 public class CustomerService {
 
@@ -17,10 +20,19 @@ public class CustomerService {
   private static final Logger logger = LoggerFactory.getLogger(CustomerService.class);
   private final CustomerRepository customerRepository;
 
+  /**
+   * Private constructor to initialize the service.
+   * Uses JsonCustomerRepository as the repository implementation.
+   */
   private CustomerService() {
     this.customerRepository = JsonCustomerRepository.getInstance();
   }
 
+  /**
+   * Returns the singleton instance of CustomerService.
+   *
+   * @return the singleton instance
+   */
   public static CustomerService getInstance() {
     if (instance == null) {
       instance = new CustomerService();
@@ -28,17 +40,33 @@ public class CustomerService {
     return instance;
   }
 
+  /**
+   * Adds a new customer to the repository.
+   *
+   * @param customer the customer to add
+   * @return the added customer
+   */
   public Customer addCustomer(Customer customer) {
     logger.info("Adding customer: {}", customer);
     return customerRepository.saveCustomer(customer);
   }
 
+  /**
+   * Retrieves a customer by their unique identifier.
+   *
+   * @param id the unique identifier of the customer
+   * @return the customer with the specified identifier
+   */
   public Customer getCustomerById(UUID id) {
     logger.info("Getting customer by id: {}", id);
-    customerRepository.getCustomerById(id);
     return customerRepository.getCustomerById(id);
   }
 
+  /**
+   * Retrieves all customers from the repository.
+   *
+   * @return a list of all customers
+   */
   public List<Customer> getAllCustomers() {
     logger.info("Getting all customers");
     return customerRepository.getAllCustomers();

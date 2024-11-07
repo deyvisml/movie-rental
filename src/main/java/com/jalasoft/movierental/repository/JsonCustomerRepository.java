@@ -12,7 +12,10 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * @author Deyvis Mamani L.
+ * Repository class for managing Customer entities using JSON file storage.
+ * Provides methods for saving, retrieving, and listing customers.
+ *
+ * Author: Deyvis Mamani L.
  */
 public class JsonCustomerRepository implements CustomerRepository {
 
@@ -22,12 +25,21 @@ public class JsonCustomerRepository implements CustomerRepository {
   private final File file;
   private final List<Customer> customers;
 
+  /**
+   * Private constructor to initialize the repository.
+   * Reads the customers from the JSON file.
+   */
   private JsonCustomerRepository() {
     this.mapper = new ObjectMapper();
     this.file = new File(FILE_PATH);
     this.customers = readCustomers();
   }
 
+  /**
+   * Returns the singleton instance of JsonCustomerRepository.
+   *
+   * @return the singleton instance
+   */
   public static JsonCustomerRepository getInstance() {
     if (instance == null) {
       instance = new JsonCustomerRepository();
@@ -35,6 +47,12 @@ public class JsonCustomerRepository implements CustomerRepository {
     return instance;
   }
 
+  /**
+   * Saves a new customer to the repository.
+   *
+   * @param customer the customer to save
+   * @return the saved customer
+   */
   @Override
   public Customer saveCustomer(Customer customer) {
     customers.add(customer);
@@ -42,6 +60,13 @@ public class JsonCustomerRepository implements CustomerRepository {
     return customer;
   }
 
+  /**
+   * Retrieves a customer by their unique identifier.
+   *
+   * @param id the unique identifier of the customer
+   * @return the customer with the specified identifier
+   * @throws ResourceNotFoundException if the customer is not found
+   */
   @Override
   public Customer getCustomerById(UUID id) {
     return customers.stream()
@@ -50,11 +75,22 @@ public class JsonCustomerRepository implements CustomerRepository {
         .orElseThrow(() -> new ResourceNotFoundException("Customer with id " + id + " not found"));
   }
 
+  /**
+   * Retrieves all customers from the repository.
+   *
+   * @return a list of all customers
+   */
   @Override
   public List<Customer> getAllCustomers() {
     return customers;
   }
 
+  /**
+   * Reads the customers from the JSON file.
+   *
+   * @return a list of customers
+   * @throws FileAccessException if there is an error reading the file
+   */
   private List<Customer> readCustomers() {
     if (!file.exists()) {
       return new ArrayList<>();
@@ -67,6 +103,11 @@ public class JsonCustomerRepository implements CustomerRepository {
     }
   }
 
+  /**
+   * Writes the customers to the JSON file.
+   *
+   * @throws FileAccessException if there is an error writing the file
+   */
   private void writeCustomers() {
     try {
       mapper.writerWithDefaultPrettyPrinter().writeValue(file, customers);

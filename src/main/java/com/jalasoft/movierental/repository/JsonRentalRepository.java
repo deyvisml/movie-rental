@@ -11,7 +11,10 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * @author Deyvis Mamani L.
+ * Repository implementation for managing Rental entities using JSON files.
+ * Provides methods for saving, retrieving, and listing rentals.
+ *
+ * Author: Deyvis Mamani L.
  */
 public class JsonRentalRepository implements RentalRepository {
 
@@ -21,13 +24,21 @@ public class JsonRentalRepository implements RentalRepository {
   private final File file;
   private final List<Rental> rentals;
 
+  /**
+   * Private constructor to initialize the repository.
+   * Reads the rentals from the JSON file.
+   */
   private JsonRentalRepository() {
     this.mapper = new ObjectMapper();
     this.file = new File(FILE_PATH);
-
     this.rentals = readRentals();
   }
 
+  /**
+   * Returns the singleton instance of JsonRentalRepository.
+   *
+   * @return the singleton instance
+   */
   public static JsonRentalRepository getInstance() {
     if (instance == null) {
       instance = new JsonRentalRepository();
@@ -35,12 +46,23 @@ public class JsonRentalRepository implements RentalRepository {
     return instance;
   }
 
+  /**
+   * Saves the given rental to the repository.
+   *
+   * @param rental the rental to save
+   */
   @Override
   public void saveRental(Rental rental) {
     rentals.add(rental);
     writeRentals();
   }
 
+  /**
+   * Retrieves all rentals for a specific customer by their unique identifier.
+   *
+   * @param customerId the unique identifier of the customer
+   * @return a list of rentals for the specified customer
+   */
   @Override
   public List<Rental> getAllRentalsByCustomerId(UUID customerId) {
     return rentals.stream()
@@ -48,11 +70,22 @@ public class JsonRentalRepository implements RentalRepository {
         .toList();
   }
 
+  /**
+   * Retrieves all rentals from the repository.
+   *
+   * @return a list of all rentals
+   */
   @Override
   public List<Rental> getAllRentals() {
     return rentals;
   }
 
+  /**
+   * Reads the rentals from the JSON file.
+   *
+   * @return a list of rentals
+   * @throws FileAccessException if there is an error reading the file
+   */
   public List<Rental> readRentals()  {
     if (!file.exists()) {
       return new ArrayList<Rental>();
@@ -65,6 +98,11 @@ public class JsonRentalRepository implements RentalRepository {
     }
   }
 
+  /**
+   * Writes the rentals to the JSON file.
+   *
+   * @throws FileAccessException if there is an error writing the file
+   */
   public void writeRentals() {
     try {
       mapper.writerWithDefaultPrettyPrinter().writeValue(file, rentals);
