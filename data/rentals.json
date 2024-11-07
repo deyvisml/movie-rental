@@ -70,4 +70,24 @@
   "customerId" : "dc56faab-8a19-4484-9f56-2ccd693c7b68",
   "movieId" : "c363f2aa-b862-4c5f-8c0d-546f01b743c5",
   "daysRented" : 3
+}, {
+  "customerId" : "09d0699e-c6c3-46b2-baa4-93521a2ff208",
+  "movieId" : "c0ef0faf-034f-4b4f-bd0f-bd9734b821df",
+  "daysRented" : 5
+}, {
+  "customerId" : "09d0699e-c6c3-46b2-baa4-93521a2ff208",
+  "movieId" : "4d506af1-93eb-4c4a-9843-3bdb491e5a29",
+  "daysRented" : 1
+}, {
+  "customerId" : "09d0699e-c6c3-46b2-baa4-93521a2ff208",
+  "movieId" : "c363f2aa-b862-4c5f-8c0d-546f01b743c5",
+  "daysRented" : 3
+}, {
+  "customerId" : "dd42dde1-8231-487c-97b8-ae01dfb0650e",
+  "movieId" : "4d645994-fa80-44bb-952a-ec1bacc3722f",
+  "daysRented" : 3
+}, {
+  "customerId" : "3df917aa-13df-48f0-934e-3e6a097b7024",
+  "movieId" : "aaa50c36-8bac-4133-acb7-f28092d02637",
+  "daysRented" : 3
 } ]

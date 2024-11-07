@@ -94,4 +94,24 @@
   "type" : "CHILDREN",
   "title" : "Soul",
   "id" : "dca395f6-2e29-4a2f-aa38-c576c8ad27e6"
+}, {
+  "type" : "NEW_RELEASE",
+  "title" : "Zack Snyder's Justice League",
+  "id" : "1ad45b88-2293-460f-b312-616bb1590929"
+}, {
+  "type" : "REGULAR",
+  "title" : "Terminator",
+  "id" : "1f743d1b-fb00-4c12-81c2-a2cca0a41e85"
+}, {
+  "type" : "CHILDREN",
+  "title" : "Soul",
+  "id" : "4d645994-fa80-44bb-952a-ec1bacc3722f"
+}, {
+  "type" : "REGULAR",
+  "title" : "my movie",
+  "id" : "a763097d-8853-4694-b25a-9826c6329f89"
+}, {
+  "type" : "REGULAR",
+  "title" : "my movie title",
+  "id" : "aaa50c36-8bac-4133-acb7-f28092d02637"
 } ]

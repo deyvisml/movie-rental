@@ -1,78 +1,31 @@
-2024-11-05 16:42:21 ERROR c.jalasoft.rental.RentalManagement - Error loading the rents: Cannot construct instance of `rental.com.jalasoft.movierental.Rental` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('movie')
- at [Source: (File); line: 3, column: 5] (through reference chain: java.util.LinkedHashMap["Deyvis"]->java.util.ArrayList[0])
-2024-11-06 12:00:24 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@196a42c3
-2024-11-06 12:00:24 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.NewReleaseMovie@2d29b4ee
-2024-11-06 12:00:24 WARN  c.j.m.e.h.CustomExceptionHandler - Bad request error: Movie with title Zack Snyder's Justice League already exists
-com.jalasoft.movierental.exception.custom.ResourceBadRequestException: Movie with title Zack Snyder's Justice League already exists
-	at com.jalasoft.movierental.repository.JsonMovieRepository.lambda$saveMovie$1(JsonMovieRepository.java:43)
-	at java.base/java.util.Optional.ifPresent(Optional.java:178)
-	at com.jalasoft.movierental.repository.JsonMovieRepository.saveMovie(JsonMovieRepository.java:42)
-	at com.jalasoft.movierental.service.MovieService.addMovie(MovieService.java:33)
-	at com.jalasoft.movierental.Main.main(Main.java:26)
-2024-11-06 12:04:20 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@196a42c3
-2024-11-06 12:04:20 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.NewReleaseMovie@2d29b4ee
-2024-11-06 12:04:20 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@17503f6b
-2024-11-06 12:04:20 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.ChildrenMovie@3bcd05cb
-2024-11-06 12:04:20 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@60db1c0e
-2024-11-06 12:04:20 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@e3b3b2f
-2024-11-06 12:04:20 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@50f6ac94
-2024-11-06 12:04:20 INFO  c.j.m.service.CustomerService - Getting customer by id: 46843f51-34f0-4c1e-b733-f07ee17c0efd
-2024-11-06 12:05:16 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@196a42c3
-2024-11-06 12:05:16 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.NewReleaseMovie@2d29b4ee
-2024-11-06 12:05:16 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@17503f6b
-2024-11-06 12:05:16 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.ChildrenMovie@3bcd05cb
-2024-11-06 12:05:16 ERROR c.j.m.e.h.CustomExceptionHandler - An unexpected error occurred: UUID string too large
-java.lang.IllegalArgumentException: UUID string too large
-	at java.base/java.util.UUID.fromString1(UUID.java:264)
-	at java.base/java.util.UUID.fromString(UUID.java:258)
-	at com.jalasoft.movierental.Main.main(Main.java:32)
-2024-11-06 12:05:48 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@196a42c3
-2024-11-06 12:05:48 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.NewReleaseMovie@2d29b4ee
-2024-11-06 12:05:48 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@17503f6b
-2024-11-06 12:05:48 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.ChildrenMovie@730d2164
-2024-11-06 12:05:48 ERROR c.j.m.e.h.CustomExceptionHandler - An unexpected error occurred: Error at index 11 in: "bd9734b821dz"
-java.lang.NumberFormatException: Error at index 11 in: "bd9734b821dz"
-	at java.base/java.lang.NumberFormatException.forCharSequence(NumberFormatException.java:83)
-	at java.base/java.lang.Long.parseLong(Long.java:794)
-	at java.base/java.util.UUID.fromString1(UUID.java:290)
-	at java.base/java.util.UUID.fromString(UUID.java:258)
-	at com.jalasoft.movierental.Main.main(Main.java:32)
-2024-11-06 12:06:33 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@196a42c3
-2024-11-06 12:06:33 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.NewReleaseMovie@2d29b4ee
-2024-11-06 12:06:33 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@17503f6b
-2024-11-06 12:06:33 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.ChildrenMovie@730d2164
-2024-11-06 12:06:33 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@7975d1d8
-2024-11-06 12:06:33 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@5038d0b5
-2024-11-06 12:06:33 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@32115b28
-2024-11-06 12:06:33 INFO  c.j.m.service.CustomerService - Getting customer by id: 46843f51-34f0-4c1e-b733-f07ee17c0efd
-2024-11-06 12:06:42 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@196a42c3
-2024-11-06 12:06:42 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.NewReleaseMovie@2d29b4ee
-2024-11-06 12:06:42 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@20bd8be5
-2024-11-06 12:06:42 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.ChildrenMovie@730d2164
-2024-11-06 12:06:42 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@7975d1d8
-2024-11-06 12:06:42 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@7f2cfe3f
-2024-11-06 12:06:42 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@45efd90f
-2024-11-06 12:06:42 INFO  c.j.m.service.CustomerService - Getting customer by id: 46843f51-34f0-5c1e-b733-f07ee17c0efd
-2024-11-06 12:06:42 ERROR c.j.m.e.h.CustomExceptionHandler - Not found error: Customer with id 46843f51-34f0-5c1e-b733-f07ee17c0efd not found
-com.jalasoft.movierental.exception.custom.ResourceNotFoundException: Customer with id 46843f51-34f0-5c1e-b733-f07ee17c0efd not found
-	at com.jalasoft.movierental.repository.JsonCustomerRepository.lambda$getCustomerById$1(JsonCustomerRepository.java:50)
-	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
-	at com.jalasoft.movierental.repository.JsonCustomerRepository.getCustomerById(JsonCustomerRepository.java:50)
-	at com.jalasoft.movierental.service.CustomerService.getCustomerById(CustomerService.java:38)
-	at com.jalasoft.movierental.Main.main(Main.java:36)
-2024-11-06 12:07:07 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@196a42c3
-2024-11-06 12:07:07 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.NewReleaseMovie@2d29b4ee
-2024-11-06 12:07:07 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@20bd8be5
-2024-11-06 12:07:07 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.ChildrenMovie@730d2164
-2024-11-06 12:07:07 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@7975d1d8
-2024-11-06 12:07:07 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@7f2cfe3f
-2024-11-06 12:07:07 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@45efd90f
-2024-11-06 12:07:07 INFO  c.j.m.service.CustomerService - Getting customer by id: 46843f51-34f0-4c1e-b733-f07ee17c0efd
-2024-11-06 12:11:14 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@196a42c3
-2024-11-06 12:11:14 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.NewReleaseMovie@2d29b4ee
-2024-11-06 12:11:14 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@20bd8be5
-2024-11-06 12:11:14 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.ChildrenMovie@730d2164
-2024-11-06 12:11:14 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@7975d1d8
-2024-11-06 12:11:14 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@7d9f158f
-2024-11-06 12:11:14 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@45efd90f
-2024-11-06 12:11:14 INFO  c.j.m.service.CustomerService - Getting customer by id: 46843f51-34f0-4c1e-b733-f07ee17c0efd
+2024-11-07 11:05:31 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@97e93f1
+2024-11-07 11:06:00 ERROR c.j.m.e.h.CustomExceptionHandler - An unexpected error occurred: No enum constant com.jalasoft.movierental.entity.movies.MovieType.X
+java.lang.IllegalArgumentException: No enum constant com.jalasoft.movierental.entity.movies.MovieType.X
+	at java.base/java.lang.Enum.valueOf(Enum.java:273)
+	at com.jalasoft.movierental.entity.movies.MovieType.valueOf(MovieType.java:6)
+	at com.jalasoft.movierental.controller.MenuController.addMovie(MenuController.java:86)
+	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:57)
+	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:27)
+	at com.jalasoft.movierental.Main.main(Main.java:11)
+2024-11-07 11:12:16 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@97e93f1
+2024-11-07 11:12:23 ERROR c.j.m.e.h.CustomExceptionHandler - An unexpected error occurred: No enum constant com.jalasoft.movierental.entity.movies.MovieType.X
+java.lang.IllegalArgumentException: No enum constant com.jalasoft.movierental.entity.movies.MovieType.X
+	at java.base/java.lang.Enum.valueOf(Enum.java:273)
+	at com.jalasoft.movierental.entity.movies.MovieType.valueOf(MovieType.java:6)
+	at com.jalasoft.movierental.controller.MenuController.addMovie(MenuController.java:91)
+	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:59)
+	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:26)
+	at com.jalasoft.movierental.Main.main(Main.java:11)
+2024-11-07 11:13:16 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@20bd8be5
+2024-11-07 11:14:00 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@7d7758be
+2024-11-07 11:32:47 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@97e93f1
+2024-11-07 11:33:25 ERROR c.j.m.e.h.CustomExceptionHandler - An unexpected error occurred: No enum constant com.jalasoft.movierental.entity.movies.MovieType.X
+java.lang.IllegalArgumentException: No enum constant com.jalasoft.movierental.entity.movies.MovieType.X
+	at java.base/java.lang.Enum.valueOf(Enum.java:273)
+	at com.jalasoft.movierental.entity.movies.MovieType.valueOf(MovieType.java:6)
+	at com.jalasoft.movierental.controller.MenuController.addMovie(MenuController.java:95)
+	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:60)
+	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:25)
+	at com.jalasoft.movierental.Main.main(Main.java:11)
+2024-11-07 11:34:20 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@20bd8be5
+2024-11-07 11:35:07 INFO  c.j.m.service.RentalService - Adding rental: com.jalasoft.movierental.entity.Rental@7d7758be

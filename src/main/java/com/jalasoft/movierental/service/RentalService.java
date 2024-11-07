@@ -8,6 +8,7 @@ import com.jalasoft.movierental.repository.JsonRentalRepository;
 import com.jalasoft.movierental.entity.Rental;
 import com.jalasoft.movierental.repository.MovieRepository;
 import com.jalasoft.movierental.repository.RentalRepository;
+import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,7 +45,12 @@ public class RentalService {
     rentalRepository.saveRental(rental);
   }
 
-  public void showDetailsByCustomer(Customer customer) {
+  public void showAllCustomerRentals() {
+    customerRepository.getAllCustomers().forEach(customer -> showDetailsByCustomerId(customer.getId()));
+  }
+
+  public void showDetailsByCustomerId(UUID customerId) {
+    Customer customer = customerRepository.getCustomerById(customerId);
     StringBuilder details = new StringBuilder();
     details.append("Rental record for: ").append(customer.getName()).append("\n");
 
@@ -59,6 +65,7 @@ public class RentalService {
 
     details.append("Amount owed is: ").append(calculateTotalRentalAmount(customer)).append("\n");
     details.append("You earn: ").append(calculateTotalRentalPoints(customer)).append(" frequent renter points");
+    details.append("\n");
 
     System.out.println(details);
   }
