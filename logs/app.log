@@ -3,8 +3,8 @@
 java.lang.IllegalArgumentException: No enum constant com.jalasoft.movierental.entity.movies.MovieType.X
 	at java.base/java.lang.Enum.valueOf(Enum.java:273)
 	at com.jalasoft.movierental.entity.movies.MovieType.valueOf(MovieType.java:6)
-	at com.jalasoft.movierental.controller.MenuController.addMovie(MenuController.java:86)
-	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:57)
+	at com.jalasoft.movierental.controller.MenuControllerTest.addMovie(MenuController.java:86)
+	at com.jalasoft.movierental.controller.MenuControllerTest.displayMenu(MenuController.java:57)
 	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:27)
 	at com.jalasoft.movierental.Main.main(Main.java:11)
 2024-11-07 11:12:16 INFO  c.j.m.service.CustomerService - Adding customer: com.jalasoft.movierental.entity.Customer@97e93f1
@@ -12,8 +12,8 @@ java.lang.IllegalArgumentException: No enum constant com.jalasoft.movierental.en
 java.lang.IllegalArgumentException: No enum constant com.jalasoft.movierental.entity.movies.MovieType.X
 	at java.base/java.lang.Enum.valueOf(Enum.java:273)
 	at com.jalasoft.movierental.entity.movies.MovieType.valueOf(MovieType.java:6)
-	at com.jalasoft.movierental.controller.MenuController.addMovie(MenuController.java:91)
-	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:59)
+	at com.jalasoft.movierental.controller.MenuControllerTest.addMovie(MenuController.java:91)
+	at com.jalasoft.movierental.controller.MenuControllerTest.displayMenu(MenuController.java:59)
 	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:26)
 	at com.jalasoft.movierental.Main.main(Main.java:11)
 2024-11-07 11:13:16 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@20bd8be5
@@ -23,8 +23,8 @@ java.lang.IllegalArgumentException: No enum constant com.jalasoft.movierental.en
 java.lang.IllegalArgumentException: No enum constant com.jalasoft.movierental.entity.movies.MovieType.X
 	at java.base/java.lang.Enum.valueOf(Enum.java:273)
 	at com.jalasoft.movierental.entity.movies.MovieType.valueOf(MovieType.java:6)
-	at com.jalasoft.movierental.controller.MenuController.addMovie(MenuController.java:95)
-	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:60)
+	at com.jalasoft.movierental.controller.MenuControllerTest.addMovie(MenuController.java:95)
+	at com.jalasoft.movierental.controller.MenuControllerTest.displayMenu(MenuController.java:60)
 	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:25)
 	at com.jalasoft.movierental.Main.main(Main.java:11)
 2024-11-07 11:34:20 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.RegularMovie@20bd8be5
@@ -37,8 +37,8 @@ com.jalasoft.movierental.exception.custom.FileAccessException: Error writing mov
 	at com.jalasoft.movierental.repository.JsonMovieRepository.save(JsonMovieRepository.java:59)
 	at com.jalasoft.movierental.repository.JsonMovieRepository.save(JsonMovieRepository.java:20)
 	at com.jalasoft.movierental.service.MovieService.addMovie(MovieService.java:51)
-	at com.jalasoft.movierental.controller.MenuController.addMovie(MenuController.java:123)
-	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:78)
+	at com.jalasoft.movierental.controller.MenuControllerTest.addMovie(MenuController.java:123)
+	at com.jalasoft.movierental.controller.MenuControllerTest.displayMenu(MenuController.java:78)
 	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:40)
 	at com.jalasoft.movierental.Main.main(Main.java:11)
 Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.jalasoft.movierental.entity.movies.strategies.NewReleasePricingStrategy and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: java.util.ArrayList[0]->com.jalasoft.movierental.entity.movies.NewReleaseMovie["pricingStrategy"])
@@ -68,8 +68,8 @@ com.jalasoft.movierental.exception.custom.FileAccessException: Error writing mov
 	at com.jalasoft.movierental.repository.JsonMovieRepository.save(JsonMovieRepository.java:59)
 	at com.jalasoft.movierental.repository.JsonMovieRepository.save(JsonMovieRepository.java:20)
 	at com.jalasoft.movierental.service.MovieService.addMovie(MovieService.java:51)
-	at com.jalasoft.movierental.controller.MenuController.addMovie(MenuController.java:123)
-	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:78)
+	at com.jalasoft.movierental.controller.MenuControllerTest.addMovie(MenuController.java:123)
+	at com.jalasoft.movierental.controller.MenuControllerTest.displayMenu(MenuController.java:78)
 	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:40)
 	at com.jalasoft.movierental.Main.main(Main.java:11)
 Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.jalasoft.movierental.entity.movies.strategies.ChildrenPricingStrategy and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: java.util.ArrayList[0]->com.jalasoft.movierental.entity.movies.ChildrenMovie["pricingStrategy"])
@@ -98,8 +98,8 @@ com.jalasoft.movierental.exception.custom.FileAccessException: Error writing mov
 	at com.jalasoft.movierental.repository.JsonMovieRepository.save(JsonMovieRepository.java:59)
 	at com.jalasoft.movierental.repository.JsonMovieRepository.save(JsonMovieRepository.java:20)
 	at com.jalasoft.movierental.service.MovieService.addMovie(MovieService.java:51)
-	at com.jalasoft.movierental.controller.MenuController.addMovie(MenuController.java:123)
-	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:78)
+	at com.jalasoft.movierental.controller.MenuControllerTest.addMovie(MenuController.java:123)
+	at com.jalasoft.movierental.controller.MenuControllerTest.displayMenu(MenuController.java:78)
 	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:40)
 	at com.jalasoft.movierental.Main.main(Main.java:11)
 Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.jalasoft.movierental.entity.movies.strategies.ChildrenPricingStrategy and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: java.util.ArrayList[0]->com.jalasoft.movierental.entity.movies.ChildrenMovie["pricingStrategy"])
@@ -138,8 +138,8 @@ com.jalasoft.movierental.exception.custom.ResourceNotFoundException: Movie with 
 	at com.jalasoft.movierental.service.RentalService.lambda$showAllCustomerRentals$1(RentalService.java:78)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at com.jalasoft.movierental.service.RentalService.showAllCustomerRentals(RentalService.java:78)
-	at com.jalasoft.movierental.controller.MenuController.showAllCustomerRentals(MenuController.java:147)
-	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:84)
+	at com.jalasoft.movierental.controller.MenuControllerTest.showAllCustomerRentals(MenuController.java:147)
+	at com.jalasoft.movierental.controller.MenuControllerTest.displayMenu(MenuController.java:84)
 	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:40)
 	at com.jalasoft.movierental.Main.main(Main.java:11)
 2024-11-07 13:23:21 ERROR c.j.m.e.h.CustomExceptionHandler - An unexpected error occurred: For input string: ""
@@ -147,6 +147,27 @@ java.lang.NumberFormatException: For input string: ""
 	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
 	at java.base/java.lang.Integer.parseInt(Integer.java:678)
 	at java.base/java.lang.Integer.parseInt(Integer.java:786)
-	at com.jalasoft.movierental.controller.MenuController.displayMenu(MenuController.java:71)
+	at com.jalasoft.movierental.controller.MenuControllerTest.displayMenu(MenuController.java:71)
 	at com.jalasoft.movierental.MovieRentalApp.run(MovieRentalApp.java:40)
 	at com.jalasoft.movierental.Main.main(Main.java:11)
+2024-11-07 19:46:12 INFO  c.j.m.service.CustomerService - Adding customer: Customer(id=e24e26ba-bcdd-43d9-9c2d-05da0c38e840, name=John Doe)
+2024-11-07 19:46:22 INFO  c.j.m.service.CustomerService - Adding customer: Customer(id=8c5a57b6-5025-4ac0-8664-2368330b9791, name=John Doe)
+2024-11-07 19:47:47 INFO  c.j.m.service.CustomerService - Adding customer: Customer(id=eba89cba-77ac-4d9a-ade5-81248f8bc148, name=John Doe)
+2024-11-07 19:48:03 INFO  c.j.m.service.CustomerService - Adding customer: Customer(id=5784882d-e69e-410b-9691-22ac00ade1a3, name=John Doe)
+2024-11-07 19:48:42 INFO  c.j.m.service.CustomerService - Adding customer: Customer(id=0cc8907c-64bf-49c1-95b8-f237bfd6f950, name=John Doe)
+2024-11-07 19:50:14 INFO  c.j.m.service.CustomerService - Adding customer: Customer(id=ec803497-0581-4d58-afbe-a71067a9005d, name=John Doe)
+2024-11-07 20:26:32 INFO  c.j.m.service.CustomerService - Adding customer: Customer(id=e44fb4a7-4368-43f0-a92f-9513e2e1aa25, name=John Doe)
+2024-11-07 20:28:26 INFO  c.j.m.service.CustomerService - Adding customer: Customer(id=6033b499-6d8c-43bb-b968-4bf33b9578ee, name=John Doe)
+2024-11-07 20:28:53 INFO  c.j.m.service.CustomerService - Getting customer by id: 4fbfd997-e16e-4cd1-bca9-3f73685f6887
+2024-11-07 20:28:59 INFO  c.j.m.service.CustomerService - Getting all customers
+2024-11-07 20:32:43 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.NewReleaseMovie@3e7dfd44
+2024-11-07 20:32:49 INFO  c.j.movierental.service.MovieService - Getting movie by id: 75f15971-18b3-44f6-8137-9d5bf4847849
+2024-11-07 20:32:59 INFO  c.j.movierental.service.MovieService - Getting all movies
+2024-11-07 20:34:30 INFO  c.j.m.service.RentalService - Adding rental: Rental(id=cb3571c2-63da-4a33-ac73-1e2feba186e2, customerId=0f7d6ca3-5fc4-446d-a504-fd79e46ab4ab, movieId=7287a8a8-e5c5-4e59-95d8-734caae65927, daysRented=5)
+2024-11-07 21:05:19 INFO  c.j.m.service.CustomerService - Adding customer: Customer(id=2fa5dbe8-1795-4431-8055-3cbb9e6f895a, name=John Doe)
+2024-11-07 21:05:19 INFO  c.j.m.service.CustomerService - Getting all customers
+2024-11-07 21:05:19 INFO  c.j.m.service.CustomerService - Getting customer by id: 5582374a-13e5-4b85-96b6-9bcc93e73ec4
+2024-11-07 21:05:19 INFO  c.j.movierental.service.MovieService - Getting all movies
+2024-11-07 21:05:19 INFO  c.j.movierental.service.MovieService - Getting movie by id: 5c51bd46-720e-4774-ad61-a087ee470904
+2024-11-07 21:05:19 INFO  c.j.movierental.service.MovieService - Adding movie: com.jalasoft.movierental.entity.movies.NewReleaseMovie@2cea921a
+2024-11-07 21:05:19 INFO  c.j.m.service.RentalService - Adding rental: Rental(id=ed0c93df-68a4-4f57-86ea-15e4f7fbf46a, customerId=392781ec-f0af-482d-a643-443627720a15, movieId=a78e9c9c-4c17-42e6-81b7-3c13da0dc656, daysRented=5)

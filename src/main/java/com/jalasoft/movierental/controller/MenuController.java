@@ -25,7 +25,7 @@ public class MenuController {
   private final CustomerService customerService;
   private final MovieService movieService;
   private final RentalService rentalService;
-  private final Scanner scanner;
+  private Scanner scanner;
 
   /**
    * Private constructor to prevent instantiation.
@@ -105,7 +105,8 @@ public class MenuController {
   /**
    * Prompts the user to enter a customer name and adds the customer.
    */
-  private void addCustomer() {
+  public void addCustomer() {
+    scanner = new Scanner(System.in);
     System.out.print("Enter customer name: ");
     String name = scanner.nextLine();
     Customer customer = new Customer(name);
@@ -116,7 +117,8 @@ public class MenuController {
   /**
    * Prompts the user to enter movie details and adds the movie.
    */
-  private void addMovie() {
+  public void addMovie() {
+    scanner = new Scanner(System.in);
     System.out.print("Enter movie type (NEW_RELEASE, REGULAR, CHILDREN): ");
     MovieType type = MovieType.valueOf(scanner.nextLine().toUpperCase());
     System.out.print("Enter movie title: ");
@@ -129,7 +131,8 @@ public class MenuController {
   /**
    * Prompts the user to enter rental details and adds the rental.
    */
-  private void addRental() {
+  public void addRental() {
+    scanner = new Scanner(System.in);
     System.out.print("Enter customer ID: ");
     UUID customerId = UUID.fromString(scanner.nextLine());
     System.out.print("Enter movie ID: ");
@@ -143,14 +146,15 @@ public class MenuController {
   /**
    * Displays all customer rentals.
    */
-  private void showAllCustomerRentals() {
+  public void showAllCustomerRentals() {
     rentalService.showAllCustomerRentals();
   }
 
   /**
    * Prompts the user to enter a customer ID and displays rentals for that customer.
    */
-  private void showCustomerRentalsByCustomerId() {
+  public void showCustomerRentalsByCustomerId() {
+    scanner = new Scanner(System.in);
     System.out.print("Enter customer ID: ");
     UUID customerId = UUID.fromString(scanner.nextLine());
     rentalService.showDetailsByCustomerId(customerId);
